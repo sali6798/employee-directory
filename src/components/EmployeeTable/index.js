@@ -3,12 +3,16 @@ import EmployeeRow from "../EmployeeRow";
 import "./style.css";
 
 function EmployeeTable(props) {
+    const createRow = employee => {
+        return <EmployeeRow key={employee.login.uuid} image={employee.picture.thumbnail} name={`${employee.name.first} ${employee.name.last}`} phone={employee.phone} email={employee.email} dob={employee.dob.date} />
+    }
+
     const displayEmployees = () => {
         if (props.search) {
             const filteredEmployees = props.result.filter(employee => `${employee.name.first} ${employee.name.last}`.toLowerCase().includes(props.search.toLowerCase()));
-            return filteredEmployees.map(employee => <EmployeeRow key={employee.login.uuid} image={employee.picture.thumbnail} name={`${employee.name.first} ${employee.name.last}`} phone={employee.phone} email={employee.email} dob={employee.dob.date} />)
+            return filteredEmployees.map(employee => createRow(employee))
         }
-        return props.result.map(employee => <EmployeeRow key={employee.login.uuid} image={employee.picture.thumbnail} name={`${employee.name.first} ${employee.name.last}`} phone={employee.phone} email={employee.email} dob={employee.dob.date} />)
+        return props.result.map(employee => createRow(employee))
     }
 
     const orderNames = () => {

@@ -44,11 +44,13 @@ class EmployeeContainer extends Component {
     render() {
         return (
             <div>
-                <Search
-                    value={this.state.search}
-                    handleInputChange={this.handleInputChange}
+                <Search value={this.state.search} handleInputChange={this.handleInputChange} />
+                <EmployeeTable 
+                    result={this.state.result} 
+                    search={this.state.search} 
+                    sorted={this.state.sorted} 
+                    handleStateChange={this.handleStateChange}
                 />
-                <EmployeeTable result={this.state.result} search={this.state.search} sorted={this.state.sorted} handleStateChange={this.handleStateChange}/>
             </div>
         );
     }
