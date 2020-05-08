@@ -1,7 +1,33 @@
-table {
+.tableContainer table {
     width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
 }
 
-table span:hover {
+.tableContainer table span:hover {
     cursor: pointer;
+}
+
+.tableContainer thead tr {
+    border-bottom: 2px solid black;
+}
+
+.tableContainer tr {
+    border-bottom: 0.5px solid black;
+}
+
+.tableContainer .rotate {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);	 /* for IE  */
+    /*  for browsers supporting webkit (such as chrome, safari etc.). */
+    -webkit-transform: rotate(180deg);
+    display: inline-block;
+}
+
+.tableContainer .alert {
+    display: block;
+}
+
+.tableContainer .hide {
+    display: none;
 }

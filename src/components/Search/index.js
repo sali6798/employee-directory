@@ -1,8 +1,9 @@
 import React from "react";
+import "./style.css"
 
 function Search(props) {
     return (
-        <form>
+        <form className="search">
             <input
                 onChange={props.handleInputChange}
                 value={props.value}
