@@ -3,10 +3,21 @@
 ## Description
 A place to view the an employee directory that contains picture, name, phone, email and DOB information for each employee. Searching for an employee has been made even easier by displaying the narrowed down results of names that match the search string. So each added letter to the search narrows down the result until the user wanted is found. If the user does not exist, it will display an error message. Searching is not case sensitive, so there's no need to worry about where to add capital letters. Search does not just match names beginning with the search query, it will match to any names that contain that exact string. For example, if a user started entering in the searchbar "ad", it could return the results "Adrian Rosenbaum, Anthony Addy, Inmaculada Caballero". By default, the directory is not sorted. However, if the arrow is clicked next to the 'Name' heading in the table, the first time it will sort employees alphabetically in ascending order by their first name, and then if clicked again it will sort it in descending order i.e Z-A. 
 
+![Employee Directory demo gif](./public/Employee_Directory.gif)
+
 ## User Story
 AS A user, <br>
 I WANT to be able to view all employees and easily search for an employee <br>
 SO THAT I can quickly gather the information needed
+
+## Usages
+This app is a Progressive Web App, so from a mobile device, go to the site in the browser and then it can be added to the home sceen and it will look just like any other app with the custom icon.
+
+<img src="./public/PWA-1.PNG" width="200px"> <img src="./public/PWA-2.PNG" width="200px"> <img src="./public/PWA-3.PNG" width="200px">
+
+Images of PWA description and icon on a home screen
+
+
 
 ## Installation
 The app can be used through the deployed site below, but if you want to clone the repo, the application requires Node.js to be installed. 
