@@ -8,7 +8,8 @@ class EmployeeContainer extends Component {
     state = {
         result: [],
         search: "",
-        sorted: false
+        sorted: false,
+        flipped: false
     };
 
     componentDidMount() {
@@ -28,29 +29,26 @@ class EmployeeContainer extends Component {
     }
 
     handleStateChange = (...changes) => {
-        if (changes.length > 1) {
+        if (changes.length === 3) {
             this.setState({
                 result: changes[0],
-                sorted: true
+                sorted: true,
+                flipped: true
             })
         }
         else {
             this.setState({
-                result: changes[0]
+                result: changes[0],
+                flipped: changes[1]
             })
         }
     }
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <Search value={this.state.search} handleInputChange={this.handleInputChange} />
-                <EmployeeTable 
-                    result={this.state.result} 
-                    search={this.state.search} 
-                    sorted={this.state.sorted} 
-                    handleStateChange={this.handleStateChange}
-                />
+                <EmployeeTable {...this.state} handleStateChange={this.handleStateChange} />
             </div>
         );
     }
