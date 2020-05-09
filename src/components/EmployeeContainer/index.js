@@ -9,6 +9,7 @@ class EmployeeContainer extends Component {
         result: [],
         search: "",
         sorted: false,
+        sortedBy: "",
         flipped: false
     };
 
@@ -32,7 +33,7 @@ class EmployeeContainer extends Component {
         if (changes.length === 3) {
             this.setState({
                 result: changes[0],
-                sorted: true,
+                sortedBy: changes[1],
                 flipped: true
             })
         }
