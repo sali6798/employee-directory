@@ -8,6 +8,9 @@ function EmployeeTable(props) {
         return <EmployeeRow key={employee.login.uuid} image={employee.picture.thumbnail} name={`${employee.name.first} ${employee.name.last}`} phone={employee.phone} email={employee.email} dob={employee.dob.date} />
     }
 
+    // if the user has entered something in the search bar, display the names (combined first name and last name)
+    // that include the string, if no names include the given string do not create rows, if there is no
+    // search query, create rows for all employees
     const displayEmployees = () => {
         if (props.search) {
             filteredEmployees = props.result.filter(employee => `${employee.name.first} ${employee.name.last}`.toLowerCase().includes(props.search.toLowerCase()));
@@ -17,9 +20,14 @@ function EmployeeTable(props) {
             }
             return;
         }
+
         return props.result.map(employee => createRow(employee))
     }
 
+    // sorts the employees first in ascending order according to the
+    // table heading arrow that was clicked, if the arrow is clicked again
+    // on a heading that the results is currently sorted by, the sorted
+    // results is reversed
     const sortResults = heading => {
         if (props.sortedBy === heading) {
             props.handleStateChange(props.result.reverse(), !props.flipped)
@@ -66,6 +74,8 @@ function EmployeeTable(props) {
                         <th>Name
                             <span
                                 onClick={() => sortResults("name")}
+                                // if props.flipped rotates arrow to 180deg, if not takes off class
+                                // and the arrow will be set back to 0deg (original state)
                                 className={props.sortedBy === "name" && props.flipped ? "rotate" : ""}
                             >
                                 &#9662;
@@ -94,6 +104,7 @@ function EmployeeTable(props) {
                     {displayEmployees()}
                 </tbody>
             </table>
+            {/* display error message when no employees match search */}
             <h1 className={props.search && filteredEmployees.length < 1 ? "alert" : "hide"}>Employee does not exist!</h1>
         </div>
     );

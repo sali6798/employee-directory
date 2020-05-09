@@ -29,6 +29,9 @@ class EmployeeContainer extends Component {
     }
 
     handleStateChange = (...changes) => {
+        // change result to sorted array,
+        // set sortedBy to the heading results is sorted by
+        // flipped true because arrow has been clicked
         if (changes.length === 3) {
             this.setState({
                 result: changes[0],
