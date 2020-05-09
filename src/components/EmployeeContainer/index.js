@@ -8,7 +8,6 @@ class EmployeeContainer extends Component {
     state = {
         result: [],
         search: "",
-        sorted: false,
         sortedBy: "",
         flipped: false
     };
